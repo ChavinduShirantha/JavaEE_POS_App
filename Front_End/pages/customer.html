@@ -259,6 +259,34 @@
         });
     });
 
+    $("#updateCustomerBtn").click(function () {
+        let cusID = $("#customerId").val();
+        let cusName = $("#customerName").val();
+        let cusAddress = $("#customerAddress").val();
+        let cusSalary = $("#customerSalary").val();
+
+        let customer = {
+            "customerId": cusID,
+            "customerName": cusName,
+            "customerAddress": cusAddress,
+            "customerSalary": cusSalary
+        }
+
+        $.ajax({
+            url: 'http://localhost:8080/Back_End/pages/customer',
+            method: "put",
+            contentType: "application/json",
+            data:JSON.stringify(customer),
+            success: function (res) {
+                alert(res.message);
+                getAllCustomers();
+            },
+            error: function (error) {
+                alert(error.responseJSON.message);
+            }
+        });
+    });
+
 </script>
 
 </body>
