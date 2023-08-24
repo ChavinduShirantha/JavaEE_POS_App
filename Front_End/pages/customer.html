@@ -202,7 +202,27 @@
 
 <script>
 
+    getAllCustomers();
 
+    function getAllCustomers() {
+        $("#tblCustomer").empty();
+
+        $.ajax({
+            url: 'http://localhost:8080/Back_End/pages/customer',
+            success: function (res) {
+                console.log(res);
+
+                for (let customer of res) {
+                    let row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`;
+                    $("#tblCustomer").append(row);
+                }
+            }
+        });
+    }
+
+    $("#btnGetAll").click(function () {
+        getAllCustomers();
+    });
 
 
 </script>

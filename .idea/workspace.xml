@@ -10,12 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddb36f7e-f791-4816-9b9a-e8a88ffa8035" name="Changes" comment="">
-      <change afterPath="D:/JavaEE_POS_App/Front_End/assets/js/jquery-3.7.0.min.js" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/.idea/misc.xml" beforeDir="false" afterPath="D:/JavaEE_POS_App/.idea/misc.xml" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/.idea/modules.xml" beforeDir="false" afterPath="D:/JavaEE_POS_App/.idea/modules.xml" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/.idea/workspace.xml" beforeDir="false" afterPath="D:/JavaEE_POS_App/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/Back_End/Back_End.iml" beforeDir="false" afterPath="D:/JavaEE_POS_App/Back_End/Back_End.iml" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/Front_End/Front_End.iml" beforeDir="false" />
+      <change beforePath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/CustomerServletAPI.java" beforeDir="false" afterPath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/CustomerServletAPI.java" afterDir="false" />
+      <change beforePath="D:/JavaEE_POS_App/Front_End/pages/customer.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/customer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +36,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2UQ9aQwn8kOYLz8hPePrc3UBqGR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -56,7 +52,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/JavaEE_POS_App/Back_End/web/assets/js",
+    "last_opened_file_path": "D:/JavaEE_POS_App/Front_End/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,6 +71,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaEE_POS_App\Front_End\assets" />
       <recent name="D:\JavaEE_POS_App\Back_End\web\assets\js" />
       <recent name="D:\JavaEE_POS_App\Back_End\web" />
     </key>
@@ -193,6 +190,7 @@
       <option name="presentableId" value="Default" />
       <updated>1692861001741</updated>
       <workItem from="1692861002825" duration="6026000" />
+      <workItem from="1692869896969" duration="1734000" />
     </task>
     <servers />
   </component>
