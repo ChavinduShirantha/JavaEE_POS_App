@@ -91,7 +91,7 @@
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateItem">Update
                 Item
             </button>
-            <button type="button" class="btn btn-info">View All Items</button>
+            <button type="button" class="btn btn-info" id="btnGetAllItems">View All Items</button>
         </div>
 
         <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 250px;">
@@ -193,6 +193,32 @@
     </div>
 
 </main>
+
+<script src="../assets/js/jquery-3.7.0.min.js"></script>
+
+<script>
+    getAllItems();
+
+    function getAllItems() {
+        $("#tblItem").empty();
+
+        $.ajax({
+            url: 'http://localhost:8080/Back_End/pages/item',
+            success: function (res) {
+                console.log(res);
+
+                for (let item of res) {
+                    let row = `<tr><td>${item.code}</td><td>${item.description}</td><td>${item.unitPrice}</td><td>${item.qty}</td></tr>`;
+                    $("#tblItem").append(row);
+                }
+            }
+        });
+    }
+
+    $("#btnGetAllItems").click(function () {
+        getAllItems();
+    });
+</script>
 
 </body>
 </html>
