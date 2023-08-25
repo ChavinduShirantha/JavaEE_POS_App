@@ -106,7 +106,8 @@
                             <th scope="col">Customer Salary</th>
                         </tr>
                         </thead>
-                        <tbody id="tblCustomer" class="text-center"></tbody>
+                        <tbody id="tblCustomer" class="text-center" data-bs-toggle="modal"
+                               data-bs-target="#updateCustomer"></tbody>
                     </table>
                 </div>
             </div>
@@ -216,6 +217,8 @@
                     let row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`;
                     $("#tblCustomer").append(row);
                 }
+                bindCustomerTrEvents();
+
             }
         });
     }
@@ -286,6 +289,15 @@
             }
         });
     });
+
+    function bindCustomerTrEvents() {
+        $("#tblCustomer>tr").click(function (eData) {
+            $("#customerId").val($(this).children().eq(0).text());
+            $("#customerName").val($(this).children().eq(1).text());
+            $("#customerAddress").val($(this).children().eq(2).text());
+            $("#customerSalary").val($(this).children().eq(3).text());
+        });
+    }
 
 </script>
 
