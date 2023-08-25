@@ -186,7 +186,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-outline-warning">Update</button>
+                    <button type="button" class="btn btn-outline-warning" id="updateItemBtn">Update</button>
                 </div>
             </div>
         </div>
@@ -255,6 +255,35 @@
 
         });
     });
+
+    $("#updateItemBtn").click(function () {
+        let code = $("#itemID").val();
+        let description = $("#itemName").val();
+        let price = $("#itemPrice").val();
+        let qty = $("#itemQuantity").val();
+
+        let item = {
+            "itemCode": code,
+            "itemDescription": description,
+            "unitPrice": price,
+            "qtyOnHand": qty
+        }
+
+        $.ajax({
+            url: 'http://localhost:8080/Back_End/pages/item',
+            method: "put",
+            contentType: "application/json",
+            data:JSON.stringify(item),
+            success: function (res) {
+                alert(res.message);
+                getAllItems();
+            },
+            error: function (error) {
+                alert(error.responseJSON.message);
+            }
+        });
+    });
+
 
 </script>
 
