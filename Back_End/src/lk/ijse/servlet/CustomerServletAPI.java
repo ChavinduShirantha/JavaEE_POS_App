@@ -51,7 +51,9 @@ public class CustomerServletAPI extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

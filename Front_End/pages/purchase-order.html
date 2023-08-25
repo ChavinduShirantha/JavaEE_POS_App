@@ -86,25 +86,20 @@
                     <div class="col-12 col-md-8 col-lg-6">
                         <label class="fw-bold" for="customer_Id">Customer ID :</label>
                         <select aria-label="Default select example" class="form-select border-dark" id="customer_Id">
-                            <option selected>-Select Customer-</option>
-                            <option value="1">C001</option>
-                            <option value="2">C002</option>
-                            <option value="3">C003</option>
-                            <option value="4">C004</option>
                         </select>
                     </div>
                     <div class="col-12 col-md-8 col-lg-6">
-                        <label class="fw-bold" for="customerName">Customer Name :</label>
+                        <label class="fw-bold" for="customer_Name">Customer Name :</label>
                         <input class="form-control border-dark" id="customer_Name" type="text">
                     </div>
                 </div>
                 <div class="row mt-1">
                     <div class="col-12 col-md-8 col-lg-6">
-                        <label class="fw-bold" for="customerAddress">Customer Address :</label>
+                        <label class="fw-bold" for="customer_Address">Customer Address :</label>
                         <input class="form-control border-dark" id="customer_Address" type="text">
                     </div>
                     <div class="col-12 col-md-8 col-lg-6">
-                        <label class="fw-bold" for="customerSalary">Customer Salary :</label>
+                        <label class="fw-bold" for="customer_Salary">Customer Salary :</label>
                         <input class="form-control border-dark" id="customer_Salary" type="number">
                     </div>
                 </div>
@@ -117,15 +112,10 @@
                     <div class="col-12 col-md-8 col-lg-6">
                         <label class="fw-bold" for="itemCode">Item Code :</label>
                         <select aria-label="Default select example" class="form-select border-dark" id="itemCode">
-                            <option selected>-Select Item-</option>
-                            <option value="1">I001</option>
-                            <option value="2">I002</option>
-                            <option value="3">I003</option>
-                            <option value="4">I004</option>
                         </select>
                     </div>
                     <div class="col-12 col-md-8 col-lg-6">
-                        <label class="fw-bold" for="itemName">Item Name :</label>
+                        <label class="fw-bold" for="item_Name">Item Name :</label>
                         <input class="form-control border-dark" id="item_Name" type="text">
                     </div>
                 </div>
@@ -203,6 +193,53 @@
 
 </main>
 
+<script src="../assets/js/jquery-3.7.0.min.js"></script>
+
+
+<script>
+
+    $("#customer_Id").empty();
+    $.ajax({
+        url: "http://localhost:8080/Back_End/pages/customer",
+        method: "GET",
+        success: function (res) {
+            console.log(res);
+
+            for (let customer of res) {
+                let id = customer.id;
+
+                $("#customer_Id").append(`<option>${id}</option>`);
+            }
+            console.log(res.message);
+        }, error: function (error) {
+            console.log(error.responseJSON.message);
+
+        }
+
+    });
+
+    $("#itemCode").empty();
+    $.ajax({
+        url: "http://localhost:8080/Back_End/pages/item",
+        method: "GET",
+        success: function (res) {
+            console.log(res);
+
+            for (let item of res) {
+                let code = item.code;
+
+                $("#itemCode").append(`<option>${code}</option>`);
+            }
+            console.log(res.message);
+        }, error: function (error) {
+            console.log(error.responseJSON.message);
+        }
+
+    });
+
+
+
+</script>
 
 </body>
 </html>
