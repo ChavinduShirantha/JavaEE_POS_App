@@ -10,8 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddb36f7e-f791-4816-9b9a-e8a88ffa8035" name="Changes" comment="">
+      <change beforePath="D:/JavaEE_POS_App/.idea/workspace.xml" beforeDir="false" afterPath="D:/JavaEE_POS_App/.idea/workspace.xml" afterDir="false" />
       <change beforePath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/ItemServletAPI.java" beforeDir="false" afterPath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/ItemServletAPI.java" afterDir="false" />
       <change beforePath="D:/JavaEE_POS_App/Front_End/pages/item.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/item.html" afterDir="false" />
+      <change beforePath="D:/JavaEE_POS_App/out/artifacts/Back_End/Back_End.war" beforeDir="false" afterPath="D:/JavaEE_POS_App/out/artifacts/Back_End/Back_End.war" afterDir="false" />
+      <change beforePath="D:/JavaEE_POS_App/out/production/Back_End/lk/ijse/servlet/ItemServletAPI.class" beforeDir="false" afterPath="D:/JavaEE_POS_App/out/production/Back_End/lk/ijse/servlet/ItemServletAPI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +194,7 @@
       <updated>1692861001741</updated>
       <workItem from="1692861002825" duration="6026000" />
       <workItem from="1692869896969" duration="3727000" />
-      <workItem from="1692955656514" duration="1058000" />
+      <workItem from="1692955656514" duration="1821000" />
     </task>
     <servers />
   </component>
