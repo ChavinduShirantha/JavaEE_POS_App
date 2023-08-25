@@ -106,7 +106,8 @@
                             <th scope="col">Item Qyt</th>
                         </tr>
                         </thead>
-                        <tbody id="tblItem" class="text-center"></tbody>
+                        <tbody id="tblItem" class="text-center" data-bs-toggle="modal"
+                               data-bs-target="#updateItem"></tbody>
                     </table>
                 </div>
             </div>
@@ -213,6 +214,7 @@
                     let row = `<tr><td>${item.code}</td><td>${item.description}</td><td>${item.unitPrice}</td><td>${item.qty}</td></tr>`;
                     $("#tblItem").append(row);
                 }
+                bindItemTrEvents();
             }
         });
     }
@@ -284,6 +286,14 @@
         });
     });
 
+    function bindItemTrEvents() {
+        $("#tblItem>tr").click(function (eData) {
+            $("#itemID").val($(this).children().eq(0).text());
+            $("#itemName").val($(this).children().eq(1).text());
+            $("#itemPrice").val($(this).children().eq(2).text());
+            $("#itemQuantity").val($(this).children().eq(3).text());
+        });
+    }
 
 </script>
 
