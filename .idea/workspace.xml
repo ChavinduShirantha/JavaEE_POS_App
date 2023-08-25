@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddb36f7e-f791-4816-9b9a-e8a88ffa8035" name="Changes" comment="">
-      <change beforePath="D:/JavaEE_POS_App/.idea/workspace.xml" beforeDir="false" afterPath="D:/JavaEE_POS_App/.idea/workspace.xml" afterDir="false" />
       <change beforePath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/ItemServletAPI.java" beforeDir="false" afterPath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/ItemServletAPI.java" afterDir="false" />
       <change beforePath="D:/JavaEE_POS_App/Front_End/pages/item.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/item.html" afterDir="false" />
     </list>
@@ -192,7 +191,7 @@
       <updated>1692861001741</updated>
       <workItem from="1692861002825" duration="6026000" />
       <workItem from="1692869896969" duration="3727000" />
-      <workItem from="1692955656514" duration="571000" />
+      <workItem from="1692955656514" duration="1058000" />
     </task>
     <servers />
   </component>

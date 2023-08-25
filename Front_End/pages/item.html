@@ -122,25 +122,25 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="ubFt">
+                    <form class="ubFt" id="ItemSaveForm">
                         <div>
                             <label for="item-ID" class="col-form-label">Item Code:</label>
-                            <input type="text" class="form-control" id="item-ID">
+                            <input name="item-ID" type="text" class="form-control" id="item-ID">
                             <small class="control-error text-danger" id="lblItem-ID"></small>
                         </div>
                         <div>
                             <label for="item-Name" class="col-form-label">Item Name:</label>
-                            <input type="text" class="form-control" id="item-Name">
+                            <input name="item-Name" type="text" class="form-control" id="item-Name">
                             <small class="control-error text-danger" id="lblItem-Name"></small>
                         </div>
                         <div>
                             <label for="item-Price" class="col-form-label">Item Price:</label>
-                            <input type="text" class="form-control" id="item-Price">
+                            <input name="item-Price" type="text" class="form-control" id="item-Price">
                             <small class="control-error text-danger" id="lblItem-Price"></small>
                         </div>
                         <div>
                             <label for="item-Quantity" class="col-form-label">Item Quantity:</label>
-                            <input type="text" class="form-control" id="item-Quantity">
+                            <input name="item-Quantity" type="text" class="form-control" id="item-Quantity">
                             <small class="control-error text-danger" id="lblItem-Quantity"></small>
                         </div>
                     </form>
@@ -196,6 +196,8 @@
 
 <script src="../assets/js/jquery-3.7.0.min.js"></script>
 
+<script src="../assets/js/bootstrap.js"></script>
+
 <script>
     getAllItems();
 
@@ -217,6 +219,24 @@
 
     $("#btnGetAllItems").click(function () {
         getAllItems();
+    });
+
+    $("#saveItem").click(function () {
+        let formData = $("#ItemSaveForm").serialize();
+        console.log(formData)
+
+        $.ajax({
+            url: 'http://localhost:8080/Back_End/pages/item',
+            method: "post",
+            data: formData,
+            success: function (res) {
+                alert(res.message);
+                getAllItems();
+            },
+            error: function (error) {
+                alert(error.responseJSON.message);
+            }
+        });
     });
 </script>
 
