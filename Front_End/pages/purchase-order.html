@@ -204,6 +204,9 @@
     setDates();
     generateOrderID();
 
+    $("#subtotal").attr('disabled', true);
+    $("#balance").attr('disabled', true);
+
     $("#customer_Id").empty();
     $("#customer_Id").append(`<option>-Select Customer-</option>`);
 
@@ -305,30 +308,30 @@
     }
 
     function generateOrderID() {
-        $("#orderId").val("ORD-001");
-        let res = searchOrder();
-
-        let tempId = parseInt(res.split("-")[1]);
-        tempId = tempId + 1;
-        if (tempId <= 9) {
-            $("#orderId").val("ORD-00" + tempId);
-        } else if (tempId <= 99) {
-            $("#orderId").val("ORD-0" + tempId);
-        }
-    }
-
-    function searchOrder() {
         let orderId = "";
         $.ajax({
             url: "http://localhost:8080/Back_End/pages/purchase",
             method: "GET",
-            success: function (resp) {
-                orderId = resp.oid;
+            success: function (res) {
+                console.log(res);
+                if (res.length > 0) {
+                    for (let order of res) {
+                        let lastId = order.oid;
+                        let digit = lastId.substring(6);
+                        let number = parseInt(digit) + 1;
+                        $("#orderId").val(lastId.replace(digit, number));
+                    }
+                } else {
+                    $("#orderId").val("ORD-001");
+                }
+
+                console.log(res.message);
+            }, error: function (error) {
+                console.log(error.responseJSON.message);
+
             }
         });
-        return orderId;
     }
-
 
 </script>
 
