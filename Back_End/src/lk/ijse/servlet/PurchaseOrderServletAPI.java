@@ -50,6 +50,85 @@ public class PurchaseOrderServletAPI extends HttpServlet {
     }
 
     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        JsonReader reader = Json.createReader(req.getReader());
+        JsonObject jsonObject = reader.readObject();
+        String oid = jsonObject.getString("oid");
+        String cusId = jsonObject.getString("cusID");
+        String date = jsonObject.getString("date");
+        String subTotal = jsonObject.getString("subTotal");
+        String discount = jsonObject.getString("discount");
+
+        String name = jsonObject.getString("name");
+        String description = jsonObject.getString("description");
+
+        resp.addHeader("Access-Control-Allow-Origin", "*");
+
+        resp.addHeader("Content-Type", "application/json");
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaee_pos", "root", "1234");
+
+
+            connection.setAutoCommit(false);
+
+            PreparedStatement pstm = connection.prepareStatement("insert into Orders values(?,?,?,?,?)");
+            pstm.setString(1,oid);
+            pstm.setString(2,cusId);
+            pstm.setString(3,date);
+            pstm.setDouble(4, Double.parseDouble(subTotal));
+            pstm.setInt(5, Integer.parseInt(discount));
+            if (!(pstm.executeUpdate()>0)) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                throw new RuntimeException("Order Issue");
+            }else{
+                JsonArray orderDetails = jsonObject.getJsonArray("orderDetails");
+
+                for (JsonValue orderDetail : orderDetails) {
+                    String code = orderDetail.asJsonObject().getString("code");
+                    String qty = orderDetail.asJsonObject().getString("qty");
+                    String price = orderDetail.asJsonObject().getString("price");
+
+
+                    PreparedStatement pstms = connection.prepareStatement("insert into OrderDetails values(?,?,?,?,?,?,?)");
+                    pstms.setObject(1,oid);
+                    pstms.setObject(2,cusId);
+                    pstms.setObject(3,name);
+                    pstms.setObject(4,code);
+                    pstms.setObject(5,description);
+                    pstms.setObject(6,qty);
+                    pstms.setObject(7,price);
+                    if (!(pstms.executeUpdate()>0)) {
+                        connection.rollback();
+                        connection.setAutoCommit(true);
+                        throw new RuntimeException("Order Details Issue");
+                    }
+                }
+
+                connection.commit();
+                connection.setAutoCommit(true);
+
+                JsonObjectBuilder response = Json.createObjectBuilder();
+                response.add("state","Success");
+                response.add("message","Order Successfully Purchased..!");
+                response.add("data","");
+                resp.setStatus(200);
+                resp.getWriter().print(response.build());
+            }
+
+        } catch (SQLException| ClassNotFoundException | RuntimeException e) {
+            JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+            objectBuilder.add("state", "Error");
+            objectBuilder.add("message", e.getMessage());
+            objectBuilder.add("data", "");
+            resp.setStatus(400);
+            resp.getWriter().print(objectBuilder.build());
+        }
+    }
+
+    @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonObject = reader.readObject();

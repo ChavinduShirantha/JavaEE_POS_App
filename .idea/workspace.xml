@@ -14,6 +14,7 @@
       <change beforePath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/PurchaseOrderServletAPI.java" beforeDir="false" afterPath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/PurchaseOrderServletAPI.java" afterDir="false" />
       <change beforePath="D:/JavaEE_POS_App/Front_End/pages/purchase-order.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/purchase-order.html" afterDir="false" />
       <change beforePath="D:/JavaEE_POS_App/out/artifacts/Back_End/Back_End.war" beforeDir="false" afterPath="D:/JavaEE_POS_App/out/artifacts/Back_End/Back_End.war" afterDir="false" />
+      <change beforePath="D:/JavaEE_POS_App/out/production/Back_End/lk/ijse/servlet/PurchaseOrderServletAPI.class" beforeDir="false" afterPath="D:/JavaEE_POS_App/out/production/Back_End/lk/ijse/servlet/PurchaseOrderServletAPI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +199,7 @@
       <workItem from="1692975649160" duration="3827000" />
       <workItem from="1693019237787" duration="8659000" />
       <workItem from="1693039735856" duration="2028000" />
-      <workItem from="1693045243940" duration="1377000" />
+      <workItem from="1693045243940" duration="2105000" />
     </task>
     <servers />
   </component>

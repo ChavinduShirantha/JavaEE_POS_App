@@ -424,6 +424,63 @@
         $("#qtyOnHand").val(reduceQty);
     }
 
+    $("#placeOrder").on('click', function () {
+        placeOrder();
+    });
+
+    function placeOrder() {
+        let oId = $("#orderId").val();
+        let cusId = $("#customer_Id").val();
+        let oDate = $("#orderDate").val();
+        let subTot = $("#subtotal").val();
+        let discount = $("#discount").val();
+        let cusName = $("#customer_Name").val();
+        let itemName = $("#item_Name").val();
+        let orderD = getItemDetails();
+
+        let ob = {
+            "oid": oId,
+            "date": oDate,
+            "cusID": cusId,
+            "subTotal": subTot,
+            "discount": discount,
+            "name":cusName,
+            "description":itemName,
+            "orderDetails": orderD
+        }
+
+        $.ajax({
+            url: "http://localhost:8080/Back_End/pages/purchase",
+            method: "post",
+            dataType: "json",
+            data: JSON.stringify(ob),
+            contentType: "application/json",
+            success: function (res) {
+                $("#tblPlaceOrder").empty();
+                alert(res.message)
+                console.log(res.message);
+                generateOrderID();
+            }, error: function (error) {
+                console.log(error.responseJSON.message);
+
+            }
+
+        });
+
+    }
+
+    function getItemDetails() {
+        let rows = $("#tblPlaceOrder").children().length;
+        var array = [];
+        for (let i = 0; i < rows; i++) {
+            let itCode = $("#tblPlaceOrder").children().eq(i).children(":eq(0)").text();
+            let itQty = $("#tblPlaceOrder").children().eq(i).children(":eq(3)").text();
+            let itPrice = $("#tblPlaceOrder").children().eq(i).children(":eq(2)").text();
+            array.push({code: itCode, qty: itQty, price: itPrice,});
+        }
+        return array;
+    }
+
 </script>
 
 </body>
