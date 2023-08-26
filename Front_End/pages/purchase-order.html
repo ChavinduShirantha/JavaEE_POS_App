@@ -308,7 +308,6 @@
     }
 
     function generateOrderID() {
-        let orderId = "";
         $.ajax({
             url: "http://localhost:8080/Back_End/pages/purchase",
             method: "GET",
@@ -328,10 +327,23 @@
                 console.log(res.message);
             }, error: function (error) {
                 console.log(error.responseJSON.message);
-
             }
         });
     }
+
+    let totalOrder = 0;
+
+    function calcTotal(number) {
+        totalOrder += number;
+        $("#total").val(totalOrder);
+    }
+
+    $("#orderedQty").keyup(function () {
+        let price = $("#unitPrice").val();
+        let qty = $("#orderedQty").val();
+        let tot = price * qty;
+        calcTotal(tot);
+    });
 
 </script>
 
