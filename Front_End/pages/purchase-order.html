@@ -348,8 +348,45 @@
         $("#tblPlaceOrder").append(`<tr><td>${code}</td><td>${productName}</td><td>${price}</td><td>${qty}</td><td>${tot}</td></tr>`);
 
         calcTotal(tot);
-
+        calcSubTotal();
     });
+
+    $("#discount").keyup(function () {
+        calcSubTotal();
+    });
+
+    function calcSubTotal() {
+
+        let discount = $("#discount").val();
+
+        let tot = totalOrder;
+
+        if (discount === '0') {
+            let val = $("#total").val();
+            $("#subtotal").val(val);
+        } else {
+            let dis = parseInt(discount);
+            let value = tot * dis / 100;
+            let subTot = tot - value;
+            $("#subtotal").val(subTot);
+        }
+    }
+
+    $("#cash").keyup(function () {
+        calcBalance();
+    });
+
+    function calcBalance() {
+        let cash = $("#cash").val();
+        let subTot = $("#subtotal").val();
+
+        let val1 = parseInt(cash);
+        let val2 = parseInt(subTot);
+
+        let balance = val1 - val2;
+
+        $("#balance").val(balance);
+    }
 
 </script>
 
