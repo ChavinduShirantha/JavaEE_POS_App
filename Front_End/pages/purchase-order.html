@@ -141,9 +141,13 @@
                 <h4 class="text-center p-2 text-light rounded-3" style="background: rgba(38,131,255,0.8)">Payment
                     Details</h4>
                 <div class="row mt-1">
-                    <div class="col-12 col-md-8 col-lg-6">
+                    <div class="col-12 col-md-12 col-lg-12">
                         <label class="fw-bold" for="total">Total :</label>
                         <input class="form-control border-dark" id="total" type="number">
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <label class="fw-bold" for="subtotal">Sub Total :</label>
+                        <input class="form-control border-dark" id="subtotal" type="number">
                     </div>
                     <div class="col-12 col-md-8 col-lg-6">
                         <label class="fw-bold" for="discount">Discount :</label>
@@ -164,11 +168,11 @@
                     <div class="d-grid gap-4 d-md-flex mt-lg-3 justify-content-md-center">
                         <button class="btn btn-outline-warning rounded-2" type="submit" id="addToCart">Add To Cart
                         </button>
-                        <button class="btn btn-outline-success rounded-2" type="submit">Place Order</button>
+                        <button class="btn btn-outline-success rounded-2" type="submit" id="placeOrder">Place Order
+                        </button>
                     </div>
                 </div>
             </div>
-
             <div class="row mt-1 mt-md-2 mt-lg-5 justify-content-around" style="height: 250px;">
                 <div class="col-10">
                     <div class="customerTableDiv overflow-auto" style="height: 200px;">
@@ -197,8 +201,12 @@
 
 
 <script>
+    setDates();
+    generateOrderID();
 
     $("#customer_Id").empty();
+    $("#customer_Id").append(`<option>-Select Customer-</option>`);
+
     $.ajax({
         url: "http://localhost:8080/Back_End/pages/customer",
         method: "GET",
@@ -219,6 +227,8 @@
     });
 
     $("#itemCode").empty();
+    $("#itemCode").append(`<option>-Select Item-</option>`);
+
     $.ajax({
         url: "http://localhost:8080/Back_End/pages/item",
         method: "GET",
@@ -288,6 +298,37 @@
 
         });
     });
+
+    function setDates() {
+        let date = new Date().toJSON().split("T")[0];
+        $("#orderDate").val(date);
+    }
+
+    function generateOrderID() {
+        $("#orderId").val("ORD-001");
+        let res = searchOrder();
+
+        let tempId = parseInt(res.split("-")[1]);
+        tempId = tempId + 1;
+        if (tempId <= 9) {
+            $("#orderId").val("ORD-00" + tempId);
+        } else if (tempId <= 99) {
+            $("#orderId").val("ORD-0" + tempId);
+        }
+    }
+
+    function searchOrder() {
+        let orderId = "";
+        $.ajax({
+            url: "http://localhost:8080/Back_End/pages/purchase",
+            method: "GET",
+            success: function (resp) {
+                orderId = resp.oid;
+            }
+        });
+        return orderId;
+    }
+
 
 </script>
 
