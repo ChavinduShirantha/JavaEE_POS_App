@@ -338,11 +338,17 @@
         $("#total").val(totalOrder);
     }
 
-    $("#orderedQty").keyup(function () {
+    $("#addToCart").click(function () {
+        let code = $("#itemCode").val();
+        let productName = $("#item_Name").val();
         let price = $("#unitPrice").val();
         let qty = $("#orderedQty").val();
         let tot = price * qty;
+
+        $("#tblPlaceOrder").append(`<tr><td>${code}</td><td>${productName}</td><td>${price}</td><td>${qty}</td><td>${tot}</td></tr>`);
+
         calcTotal(tot);
+
     });
 
 </script>
