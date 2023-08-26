@@ -237,7 +237,57 @@
 
     });
 
+    $("#customer_Id").click(function () {
+        $.ajax({
+            url: "http://localhost:8080/Back_End/pages/customer",
+            method: "GET",
+            success: function (res) {
+                console.log(res);
 
+                let val = $("#customer_Id").val();
+
+                for (let i = 0; i < res.length; i++) {
+                    if (val == res[i].id) {
+                        $("#customer_Name").val(res[i].name)
+                        $("#customer_Address").val(res[i].address)
+                        $("#customer_Salary").val(res[i].salary)
+                    }
+                }
+
+                console.log(res.message);
+            }, error: function (error) {
+                console.log(error.responseJSON.message);
+
+            }
+
+        });
+    });
+
+    $("#itemCode").click(function () {
+        $.ajax({
+            url: "http://localhost:8080/Back_End/pages/item",
+            method: "GET",
+            success: function (res) {
+                console.log(res);
+
+                let val = $("#itemCode").val();
+
+                for (let i = 0; i < res.length; i++) {
+                    if (val == res[i].code) {
+                        $("#item_Name").val(res[i].description)
+                        $("#unitPrice").val(res[i].unitPrice)
+                        $("#qtyOnHand").val(res[i].qty)
+                    }
+                }
+
+                console.log(res.message);
+            }, error: function (error) {
+                console.log(error.responseJSON.message);
+
+            }
+
+        });
+    });
 
 </script>
 

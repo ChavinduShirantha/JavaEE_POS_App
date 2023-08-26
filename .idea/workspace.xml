@@ -10,12 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddb36f7e-f791-4816-9b9a-e8a88ffa8035" name="Changes" comment="">
-      <change beforePath="D:/JavaEE_POS_App/.idea/dataSources.local.xml" beforeDir="false" afterPath="D:/JavaEE_POS_App/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/.idea/dataSources/0fa75abc-7d19-47ac-b412-34a06e41f3d9.xml" beforeDir="false" afterPath="D:/JavaEE_POS_App/.idea/dataSources/0fa75abc-7d19-47ac-b412-34a06e41f3d9.xml" afterDir="false" />
       <change beforePath="D:/JavaEE_POS_App/.idea/workspace.xml" beforeDir="false" afterPath="D:/JavaEE_POS_App/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/CustomerServletAPI.java" beforeDir="false" afterPath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/CustomerServletAPI.java" afterDir="false" />
       <change beforePath="D:/JavaEE_POS_App/Front_End/pages/purchase-order.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/purchase-order.html" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/out/artifacts/Back_End/Back_End.war" beforeDir="false" afterPath="D:/JavaEE_POS_App/out/artifacts/Back_End/Back_End.war" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,31 +44,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/hp/Desktop/JavaEE-POS-master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15429688",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hp/Desktop/JavaEE-POS-master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\JavaEE_POS_App\Front_End\assets" />
@@ -197,7 +193,8 @@
       <workItem from="1692869896969" duration="3727000" />
       <workItem from="1692955656514" duration="4170000" />
       <workItem from="1692959916004" duration="27000" />
-      <workItem from="1692975649160" duration="3515000" />
+      <workItem from="1692975649160" duration="3827000" />
+      <workItem from="1693019237787" duration="1145000" />
     </task>
     <servers />
   </component>
