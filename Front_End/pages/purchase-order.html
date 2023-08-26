@@ -349,6 +349,8 @@
 
         calcTotal(tot);
         calcSubTotal();
+        countingDownQty(qty);
+        updateItem();
     });
 
     $("#discount").keyup(function () {
@@ -386,6 +388,40 @@
         let balance = val1 - val2;
 
         $("#balance").val(balance);
+    }
+
+    function updateItem() {
+        let code = $("#itemCode").val();
+        let description = $("#item_Name").val();
+        let price = $("#unitPrice").val();
+        let qty = $("#qtyOnHand").val();
+
+        let item = {
+            "itemCode": code,
+            "itemDescription": description,
+            "unitPrice": price,
+            "qtyOnHand": qty
+        }
+
+        $.ajax({
+            url: 'http://localhost:8080/Back_End/pages/item',
+            method: "put",
+            contentType: "application/json",
+            data:JSON.stringify(item),
+            success: function (res) {
+                console.log(res.message);
+            },
+            error: function (error) {
+                console.log(error.responseJSON.message);
+            }
+        });
+    }
+
+    function countingDownQty(orderQty) {
+        let minQty = parseInt(orderQty);
+        let reduceQty = parseInt($("#qtyOnHand").val());
+        reduceQty = reduceQty - minQty;
+        $("#qtyOnHand").val(reduceQty);
     }
 
 </script>
