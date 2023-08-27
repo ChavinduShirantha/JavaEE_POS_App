@@ -90,9 +90,11 @@
                     <tr>
                         <th scope="col">Order ID</th>
                         <th scope="col">Customer ID</th>
+                        <th scope="col">Customer Name</th>
                         <th scope="col">Item Code</th>
-                        <th scope="col">Qty</th>
-                        <th scope="col">Total</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unit Price</th>
                     </tr>
                     </thead>
                     <tbody id="tblOrderDetails" class="text-center"></tbody>
@@ -116,12 +118,31 @@
 
         $.ajax({
             url: 'http://localhost:8080/Back_End/pages/purchase?option=getOrders',
+            method:'GET',
             success: function (res) {
                 console.log(res);
 
                 for (let order of res) {
                     let row = `<tr><td>${order.oid}</td><td>${order.cusId}</td><td>${order.date}</td><td>${order.subTotal}</td><td>${order.discount}</td></tr>`;
                     $("#tblOrders").append(row);
+                }
+
+            }
+        });
+    }
+    getAllOrderDetails();
+
+    function getAllOrderDetails() {
+        $("#tblOrderDetails").empty();
+
+        $.ajax({
+            url: 'http://localhost:8080/Back_End/pages/purchase?option=getOrderDetails',
+            success: function (res) {
+                console.log(res);
+
+                for (let orderDetail of res) {
+                    let row = `<tr><td>${orderDetail.oid}</td><td>${orderDetail.cusId}</td><td>${orderDetail.cusName}</td><td>${orderDetail.code}</td><td>${orderDetail.description}</td><td>${orderDetail.qty}</td><td>${orderDetail.price}</td></tr>`;
+                    $("#tblOrderDetails").append(row);
                 }
 
             }
