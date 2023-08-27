@@ -108,5 +108,26 @@
 
 <script src="../assets/js/bootstrap.js"></script>
 
+<script>
+    getAllOrders();
+
+    function getAllOrders() {
+        $("#tblOrders").empty();
+
+        $.ajax({
+            url: 'http://localhost:8080/Back_End/pages/purchase?option=getOrders',
+            success: function (res) {
+                console.log(res);
+
+                for (let order of res) {
+                    let row = `<tr><td>${order.oid}</td><td>${order.cusId}</td><td>${order.date}</td><td>${order.subTotal}</td><td>${order.discount}</td></tr>`;
+                    $("#tblOrders").append(row);
+                }
+
+            }
+        });
+    }
+</script>
+
 </body>
 </html>

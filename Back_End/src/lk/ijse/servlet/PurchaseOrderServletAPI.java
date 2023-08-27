@@ -17,34 +17,76 @@ import java.sql.*;
 public class PurchaseOrderServletAPI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaee_pos", "root", "1234");
-            PreparedStatement pstm = connection.prepareStatement("SELECT oid FROM Orders ORDER BY oid DESC LIMIT 1");
-            ResultSet rst = pstm.executeQuery();
+        String option = req.getParameter("option");
+        switch (option) {
+            case "generateOrderID":
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaee_pos", "root", "1234");
+                PreparedStatement pstm = connection.prepareStatement("SELECT oid FROM Orders ORDER BY oid DESC LIMIT 1");
+                ResultSet rst = pstm.executeQuery();
 
-            resp.addHeader("Access-Control-Allow-Origin", "*");
+                resp.addHeader("Access-Control-Allow-Origin", "*");
 
-            resp.addHeader("Content-Type", "application/json");
-
-
-            JsonArrayBuilder allOrders = Json.createArrayBuilder();
-            while (rst.next()) {
-                String oId = rst.getString(1);
-
-                JsonObjectBuilder orderIdObject = Json.createObjectBuilder();
-                orderIdObject.add("oid", oId);
+                resp.addHeader("Content-Type", "application/json");
 
 
-                allOrders.add(orderIdObject.build());
+                JsonArrayBuilder allOrders = Json.createArrayBuilder();
+                while (rst.next()) {
+                    String oId = rst.getString(1);
+
+                    JsonObjectBuilder orderIdObject = Json.createObjectBuilder();
+                    orderIdObject.add("oid", oId);
+
+
+                    allOrders.add(orderIdObject.build());
+                }
+
+                resp.getWriter().print(allOrders.build());
+
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
 
-            resp.getWriter().print(allOrders.build());
+            case "getOrders":
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaee_pos", "root", "1234");
+                    PreparedStatement pstm = connection.prepareStatement("select * from Orders");
+                    ResultSet rst = pstm.executeQuery();
 
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+                    resp.addHeader("Access-Control-Allow-Origin", "*");
+
+                    resp.addHeader("Content-Type", "application/json");
+
+
+                    JsonArrayBuilder allOrders = Json.createArrayBuilder();
+                    while (rst.next()) {
+                        String oid = rst.getString(1);
+                        String cusId = rst.getString(2);
+                        String date = rst.getString(3);
+                        String subTotal = rst.getString(4);
+                        String discount = rst.getString(5);
+
+                        JsonObjectBuilder orderObject = Json.createObjectBuilder();
+                        orderObject.add("oid", oid);
+                        orderObject.add("cusId", cusId);
+                        orderObject.add("date", date);
+                        orderObject.add("subTotal", subTotal);
+                        orderObject.add("discount", discount);
+
+                        allOrders.add(orderObject.build());
+                    }
+
+                    resp.getWriter().print(allOrders.build());
+
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
         }
 
     }

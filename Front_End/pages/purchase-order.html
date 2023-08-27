@@ -313,7 +313,7 @@
 
     function generateOrderID() {
         $.ajax({
-            url: "http://localhost:8080/Back_End/pages/purchase",
+            url: "http://localhost:8080/Back_End/pages/purchase?option=generateOrderID",
             method: "GET",
             success: function (res) {
                 console.log(res);
