@@ -439,7 +439,6 @@
         let subTot = $("#subtotal").val();
         let discount = $("#discount").val();
         let cusName = $("#customer_Name").val();
-        let itemName = $("#item_Name").val();
         let orderD = getItemDetails();
 
         let ob = {
@@ -449,7 +448,6 @@
             "subTotal": subTot,
             "discount": discount,
             "name":cusName,
-            "description":itemName,
             "orderDetails": orderD
         }
 
@@ -478,9 +476,10 @@
         var array = [];
         for (let i = 0; i < rows; i++) {
             let itCode = $("#tblPlaceOrder").children().eq(i).children(":eq(0)").text();
+            let itName = $("#tblPlaceOrder").children().eq(i).children(":eq(1)").text();
             let itQty = $("#tblPlaceOrder").children().eq(i).children(":eq(3)").text();
             let itPrice = $("#tblPlaceOrder").children().eq(i).children(":eq(2)").text();
-            array.push({code: itCode, qty: itQty, price: itPrice,});
+            array.push({code: itCode,description: itName, qty: itQty, price: itPrice,});
         }
         return array;
     }

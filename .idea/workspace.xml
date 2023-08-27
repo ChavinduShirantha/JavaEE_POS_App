@@ -10,11 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddb36f7e-f791-4816-9b9a-e8a88ffa8035" name="Changes" comment="">
-      <change afterPath="D:/JavaEE_POS_App/Front_End/assets/validations/CustomerValidations.js" afterDir="false" />
-      <change afterPath="D:/JavaEE_POS_App/Front_End/assets/validations/ItemValidations.js" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/.idea/workspace.xml" beforeDir="false" afterPath="D:/JavaEE_POS_App/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/Front_End/pages/customer.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/customer.html" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/Front_End/pages/item.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/item.html" afterDir="false" />
+      <change beforePath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/PurchaseOrderServletAPI.java" beforeDir="false" afterPath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/PurchaseOrderServletAPI.java" afterDir="false" />
+      <change beforePath="D:/JavaEE_POS_App/Front_End/pages/purchase-order.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/purchase-order.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "1.8",
     "last_opened_file_path": "D:/JavaEE_POS_App/Front_End/assets/validations",
     "node.js.detected.package.eslint": "true",
@@ -205,7 +203,7 @@
       <workItem from="1693106872552" duration="2691000" />
       <workItem from="1693109806877" duration="27000" />
       <workItem from="1693109865125" duration="374000" />
-      <workItem from="1693129840388" duration="945000" />
+      <workItem from="1693129840388" duration="2403000" />
     </task>
     <servers />
   </component>

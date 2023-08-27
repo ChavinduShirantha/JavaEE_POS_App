@@ -145,7 +145,6 @@ public class PurchaseOrderServletAPI extends HttpServlet {
         String discount = jsonObject.getString("discount");
 
         String name = jsonObject.getString("name");
-        String description = jsonObject.getString("description");
 
         resp.addHeader("Access-Control-Allow-Origin", "*");
 
@@ -173,6 +172,7 @@ public class PurchaseOrderServletAPI extends HttpServlet {
 
                 for (JsonValue orderDetail : orderDetails) {
                     String code = orderDetail.asJsonObject().getString("code");
+                    String description =orderDetail.asJsonObject().getString("description");
                     String qty = orderDetail.asJsonObject().getString("qty");
                     String price = orderDetail.asJsonObject().getString("price");
 
