@@ -205,6 +205,8 @@
 
 <script src="../assets/js/bootstrap.js"></script>
 
+<script src="../assets/validations/CustomerValidations.js"></script>
+
 <script>
 
     getAllCustomers();
@@ -242,9 +244,11 @@
             success: function (res) {
                 alert(res.message);
                 getAllCustomers();
+                clearSaveFormFields();
             },
             error: function (error) {
                 alert(error.responseJSON.message);
+                clearSaveFormFields();
             }
         });
     });
@@ -310,9 +314,11 @@
             success: function (res) {
                 alert(res.message);
                 getAllCustomers();
+                clearUpdateFormFields();
             },
             error: function (error) {
                 alert(error.responseJSON.message);
+                clearUpdateFormFields();
             }
         });
     });
@@ -324,6 +330,24 @@
             $("#customerAddress").val($(this).children().eq(2).text());
             $("#customerSalary").val($(this).children().eq(3).text());
         });
+    }
+
+    function clearSaveFormFields() {
+        $("#customer-id,#customer-name,#customer-address,#customer-salary").val("");
+        $("#customer-id").focus();
+    }
+
+    $('#newCustomer').click(function (e) {
+        $("#customer-id").focus();
+    });
+
+    $('#updateCustomer').click(function (e) {
+        $("#customerId").focus();
+    });
+
+    function clearUpdateFormFields() {
+        $("#customerId,#customerName,#customerAddress,#customerSalary").val("");
+        $("#customerId").focus();
     }
 
 </script>

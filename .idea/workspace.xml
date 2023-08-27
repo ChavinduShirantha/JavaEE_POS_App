@@ -10,11 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddb36f7e-f791-4816-9b9a-e8a88ffa8035" name="Changes" comment="">
+      <change afterPath="D:/JavaEE_POS_App/Front_End/assets/validations/CustomerValidations.js" afterDir="false" />
+      <change afterPath="D:/JavaEE_POS_App/Front_End/assets/validations/ItemValidations.js" afterDir="false" />
       <change beforePath="D:/JavaEE_POS_App/.idea/workspace.xml" beforeDir="false" afterPath="D:/JavaEE_POS_App/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/PurchaseOrderServletAPI.java" beforeDir="false" afterPath="D:/JavaEE_POS_App/Back_End/src/lk/ijse/servlet/PurchaseOrderServletAPI.java" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/Front_End/pages/orderDetails.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/orderDetails.html" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/out/artifacts/Back_End/Back_End.war" beforeDir="false" afterPath="D:/JavaEE_POS_App/out/artifacts/Back_End/Back_End.war" afterDir="false" />
-      <change beforePath="D:/JavaEE_POS_App/out/production/Back_End/lk/ijse/servlet/PurchaseOrderServletAPI.class" beforeDir="false" afterPath="D:/JavaEE_POS_App/out/production/Back_End/lk/ijse/servlet/PurchaseOrderServletAPI.class" afterDir="false" />
+      <change beforePath="D:/JavaEE_POS_App/Front_End/pages/customer.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/customer.html" afterDir="false" />
+      <change beforePath="D:/JavaEE_POS_App/Front_End/pages/item.html" beforeDir="false" afterPath="D:/JavaEE_POS_App/Front_End/pages/item.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,33 +47,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hp/Desktop/JavaEE-POS-master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/JavaEE_POS_App/Front_End/assets/validations",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15429688",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaEE_POS_App\Front_End\assets\validations" />
       <recent name="D:\JavaEE_POS_App\Front_End\assets" />
       <recent name="D:\JavaEE_POS_App\Back_End\web\assets\js" />
       <recent name="D:\JavaEE_POS_App\Back_End\web" />
@@ -201,7 +202,10 @@
       <workItem from="1693039735856" duration="2028000" />
       <workItem from="1693045243940" duration="2105000" />
       <workItem from="1693051680316" duration="728000" />
-      <workItem from="1693106872552" duration="1834000" />
+      <workItem from="1693106872552" duration="2691000" />
+      <workItem from="1693109806877" duration="27000" />
+      <workItem from="1693109865125" duration="374000" />
+      <workItem from="1693129840388" duration="945000" />
     </task>
     <servers />
   </component>

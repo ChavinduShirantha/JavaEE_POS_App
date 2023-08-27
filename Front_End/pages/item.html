@@ -203,6 +203,8 @@
 
 <script src="../assets/js/bootstrap.js"></script>
 
+<script src="../assets/validations/ItemValidations.js"></script>
+
 <script>
     getAllItems();
 
@@ -238,9 +240,11 @@
             success: function (res) {
                 alert(res.message);
                 getAllItems();
+                clearSaveItemFormFields();
             },
             error: function (error) {
                 alert(error.responseJSON.message);
+                clearSaveItemFormFields();
             }
         });
     });
@@ -306,9 +310,11 @@
             success: function (res) {
                 alert(res.message);
                 getAllItems();
+                clearUpdateItemFormFields();
             },
             error: function (error) {
                 alert(error.responseJSON.message);
+                clearUpdateItemFormFields();
             }
         });
     });
@@ -321,6 +327,9 @@
             $("#itemQuantity").val($(this).children().eq(3).text());
         });
     }
+
+
+
 
 </script>
 
