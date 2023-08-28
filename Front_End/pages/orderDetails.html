@@ -5,7 +5,8 @@
     <title>POS System</title>
     <meta name="viewport" content="width=device-width initial-scale=1">
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
-    <link rel="stylesheet" href="../assets/fontAwesome/css/all.min.css"></head>
+    <link rel="stylesheet" href="../assets/fontAwesome/css/all.min.css">
+</head>
 <body>
 
 <header>
@@ -62,6 +63,21 @@
 </header>
 
 <main class="container-fluid" id="orderDetailsSection">
+
+    <nav class="navbar justify-content-around">
+        <div class=" col-lg-5 p-2 rounded-3" style="background-color: #eeecec">
+            <h4 class="text-center p-2 text-light rounded-3" style="background: rgba(38,131,255,0.8)">Search
+                Order</h4>
+            <form class="d-flex" role="search">
+                <input class="form-control me-3" type="search" placeholder="Input Order ID Here"
+                       aria-label="Search" id="txtOrderID">
+                <button class="btn btn-outline-success me-3" type="button" id="btnSearchOrder">Search</button>
+                <button class="btn btn-outline-primary me-3 col-2" type="button" id="viewOrderDetails">View All</button>
+                <button class="btn btn-outline-warning me-3" type="button">Clear</button>
+            </form>
+        </div>
+    </nav>
+
     <div class="row justify-content-evenly h-50">
         <div class="col-12 col-md-10 col-lg-10 p-3 mt-3 rounded-5" style="background-color: white">
             <h4 class="text-center p-2 text-light rounded-3" style="background: rgba(38,131,255,0.8)">Orders</h4>
@@ -118,7 +134,7 @@
 
         $.ajax({
             url: 'http://localhost:8080/Back_End/pages/purchase?option=getOrders',
-            method:'GET',
+            method: 'GET',
             success: function (res) {
                 console.log(res);
 
@@ -130,6 +146,7 @@
             }
         });
     }
+
     getAllOrderDetails();
 
     function getAllOrderDetails() {
@@ -148,6 +165,65 @@
             }
         });
     }
+
+    $("#viewOrderDetails").click(function () {
+        getAllOrders();
+        getAllOrderDetails()
+    });
+
+    $("#btnSearchOrder").click(function () {
+        searchOrder();
+        searchOrderDetails();
+    });
+
+    function searchOrder() {
+        let orderID = $("#txtOrderID").val();
+        $("#tblOrders").empty();
+
+        $.ajax({
+            url: 'http://localhost:8080/Back_End/pages/purchase?option=getOrders',
+            method: "get",
+            success: function (res) {
+                console.log(res.message);
+                for (let order of res) {
+                    if (orderID == order.oid) {
+                        let row = `<tr><td>${order.oid}</td><td>${order.cusId}</td><td>${order.date}</td><td>${order.subTotal}</td><td>${order.discount}</td></tr>`;
+                        $("#tblOrders").append(row);
+                    }
+                }
+            },
+            error: function (error) {
+                alert(error.responseJSON.message);
+            }
+
+        });
+    }
+
+    function searchOrderDetails() {
+        let orderID = $("#txtOrderID").val();
+        $("#tblOrderDetails").empty();
+
+        $.ajax({
+            url: 'http://localhost:8080/Back_End/pages/purchase?option=getOrderDetails',
+            method: "get",
+            success: function (res) {
+                console.log(res.message);
+                for (let orderDetail of res) {
+                    if (orderID == orderDetail.oid) {
+                        let row = `<tr><td>${orderDetail.oid}</td><td>${orderDetail.cusId}</td><td>${orderDetail.cusName}</td><td>${orderDetail.code}</td><td>${orderDetail.description}</td><td>${orderDetail.qty}</td><td>${orderDetail.price}</td></tr>`;
+                        $("#tblOrderDetails").append(row);
+                    }
+                }
+            },
+            error: function (error) {
+                alert(error.responseJSON.message);
+            }
+
+        });
+    }
+
+
+
 </script>
 
 </body>

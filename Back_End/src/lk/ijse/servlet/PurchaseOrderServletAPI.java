@@ -44,9 +44,7 @@ public class PurchaseOrderServletAPI extends HttpServlet {
 
                     resp.getWriter().print(allOrders.build());
 
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
-                } catch (SQLException e) {
+                } catch (ClassNotFoundException | SQLException e) {
                     throw new RuntimeException(e);
                 }
                 break;
@@ -82,10 +80,14 @@ public class PurchaseOrderServletAPI extends HttpServlet {
 
                     resp.getWriter().print(allOrders.build());
 
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+
+                } catch (ClassNotFoundException | SQLException e) {
+                    JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+                    objectBuilder.add("state", "Error");
+                    objectBuilder.add("message", e.getMessage());
+                    objectBuilder.add("data", "");
+                    resp.setStatus(400);
+                    resp.getWriter().print(objectBuilder.build());
                 }
                 break;
             case "getOrderDetails":
@@ -124,12 +126,16 @@ public class PurchaseOrderServletAPI extends HttpServlet {
 
                     resp.getWriter().print(allOrderDetails.build());
 
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+
+                } catch (ClassNotFoundException | SQLException e) {
+                    JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+                    objectBuilder.add("state", "Error");
+                    objectBuilder.add("message", e.getMessage());
+                    objectBuilder.add("data", "");
+                    resp.setStatus(400);
+                    resp.getWriter().print(objectBuilder.build());
                 }
-            break;
+                break;
         }
 
     }
