@@ -216,10 +216,10 @@
 
         $.ajax({
             url: 'http://localhost:8080/Back_End/pages/customer',
+            dataType: "json",
             success: function (res) {
                 console.log(res);
-
-                for (let customer of res) {
+                for (let customer of res.data) {
                     let row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`;
                     $("#tblCustomer").append(row);
                 }
@@ -262,9 +262,11 @@
             success: function (res) {
                 alert(res.message);
                 getAllCustomers();
+                return true;
             },
             error: function (error) {
                 alert(error.responseJSON.message);
+                return false;
             }
 
         });
@@ -279,7 +281,7 @@
             method: "get",
             success: function (res) {
                 console.log(res.message);
-                for (let customer of res) {
+                for (let customer of res.data) {
                     if (cusID==customer.id) {
                         let row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`;
                         $("#tblCustomer").append(row);

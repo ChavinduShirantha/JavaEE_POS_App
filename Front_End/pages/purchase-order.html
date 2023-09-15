@@ -217,10 +217,11 @@
     $.ajax({
         url: "http://localhost:8080/Back_End/pages/customer",
         method: "GET",
+        dataType: "json",
         success: function (res) {
             console.log(res);
 
-            for (let customer of res) {
+            for (let customer of res.data) {
                 let id = customer.id;
 
                 $("#customer_Id").append(`<option>${id}</option>`);
@@ -239,10 +240,11 @@
     $.ajax({
         url: "http://localhost:8080/Back_End/pages/item",
         method: "GET",
+        dataType: "json",
         success: function (res) {
             console.log(res);
 
-            for (let item of res) {
+            for (let item of res.data) {
                 let code = item.code;
 
                 $("#itemCode").append(`<option>${code}</option>`);
@@ -254,58 +256,6 @@
 
     });
 
-    $("#customer_Id").click(function () {
-        $.ajax({
-            url: "http://localhost:8080/Back_End/pages/customer",
-            method: "GET",
-            success: function (res) {
-                console.log(res);
-
-                let val = $("#customer_Id").val();
-
-                for (let i = 0; i < res.length; i++) {
-                    if (val == res[i].id) {
-                        $("#customer_Name").val(res[i].name)
-                        $("#customer_Address").val(res[i].address)
-                        $("#customer_Salary").val(res[i].salary)
-                    }
-                }
-
-                console.log(res.message);
-            }, error: function (error) {
-                console.log(error.responseJSON.message);
-
-            }
-
-        });
-    });
-
-    $("#itemCode").click(function () {
-        $.ajax({
-            url: "http://localhost:8080/Back_End/pages/item",
-            method: "GET",
-            success: function (res) {
-                console.log(res);
-
-                let val = $("#itemCode").val();
-
-                for (let i = 0; i < res.length; i++) {
-                    if (val == res[i].code) {
-                        $("#item_Name").val(res[i].description)
-                        $("#unitPrice").val(res[i].unitPrice)
-                        $("#qtyOnHand").val(res[i].qty)
-                    }
-                }
-
-                console.log(res.message);
-            }, error: function (error) {
-                console.log(error.responseJSON.message);
-
-            }
-
-        });
-    });
-
     function setDates() {
         let date = new Date().toJSON().split("T")[0];
         $("#orderDate").val(date);
@@ -315,10 +265,11 @@
         $.ajax({
             url: "http://localhost:8080/Back_End/pages/purchase?option=generateOrderID",
             method: "GET",
+            dataType: "json",
             success: function (res) {
                 console.log(res);
                 if (res.length > 0) {
-                    for (let order of res) {
+                    for (let order of res.data) {
                         let lastId = order.oid;
                         let digit = lastId.substring(6);
                         let number = parseInt(digit) + 1;
@@ -483,6 +434,58 @@
         }
         return array;
     }
+
+    function searchCustomer(cusID) {
+        let response = "";
+        $.ajax({
+            url:"http://localhost:8080/Back_End/pages/customer",
+            dataType: "json",
+            async: false,
+            success: function (resp) {
+                response = resp.data.filter((c) => {
+                    return c.id == cusID;
+                });
+            }
+        });
+        return response;
+    }
+
+    function searchItem(code) {
+        let response = "";
+        $.ajax({
+            url:"http://localhost:8080/Back_End/pages/item",
+            dataType: "json",
+            async: false,
+            success: function (resp) {
+                response = resp.data.filter((i) => {
+                    return i.code == code;
+                });
+            }
+        });
+        return response;
+    }
+
+    $("#customer_Id").change(function () {
+        let cusID = $("#customer_Id").val();
+        let res = searchCustomer(cusID);
+        if (res.length > 0) {
+            $("#customer_Name").val(res[0].name);
+            $("#customer_Address").val(res[0].address);
+            $("#customer_Salary").val(res[0].salary);
+        }
+
+    });
+
+
+    $("#itemCode").change(function () {
+        let code = $("#itemCode").val();
+        let res = searchItem(code);
+        if (res.length > 0) {
+            $("#item_Name").val(res[0].description);
+            $("#unitPrice").val(res[0].unitPrice);
+            $("#qtyOnHand").val(res[0].qty);
+        }
+    });
 
 </script>
 

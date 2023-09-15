@@ -213,10 +213,11 @@
 
         $.ajax({
             url: 'http://localhost:8080/Back_End/pages/item',
+            dataType: "json",
             success: function (res) {
                 console.log(res);
 
-                for (let item of res) {
+                for (let item of res.data) {
                     let row = `<tr><td>${item.code}</td><td>${item.description}</td><td>${item.unitPrice}</td><td>${item.qty}</td></tr>`;
                     $("#tblItem").append(row);
                 }
@@ -275,7 +276,7 @@
             method: "get",
             success: function (res) {
                 console.log(res.message);
-                for (let item of res) {
+                for (let item of res.data) {
                     if (code==item.code) {
                         let row = `<tr><td>${item.code}</td><td>${item.description}</td><td>${item.unitPrice}</td><td>${item.qty}</td></tr>`;
                         $("#tblItem").append(row);
